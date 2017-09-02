@@ -151,7 +151,7 @@ cv::Mat Tracker::trackThemAll(vector<string> files_fullpath_tracking,
     // Draw feature tracks
     if (SHOW_FEAT_TRACKS) {
 
-        cout << "here in show_FEAT_TRACKS" << endl;
+        //cout << "here in show_FEAT_TRACKS" << endl;
         // Update new feature coords:
         tracker->getProfiler().enter("drawFeatureTracks");
 

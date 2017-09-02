@@ -24,10 +24,6 @@
 # include <opencv2/nonfree/nonfree.hpp>
 #endif
 
-#ifdef HAVE_OPENCV_XFEATURES2D
-# include <opencv2/xfeatures2d.hpp>
-#endif
-
 using namespace mrpt::vision;
 using namespace mrpt::utils;
 using namespace mrpt::math;
@@ -42,11 +38,11 @@ void  CFeatureExtraction::internal_computeLATCHDescriptors(
         const mrpt::utils::CImage &in_img,
         CFeatureList &in_features) const
 {
-    //function is tested with opencv 3.1
+    //function is tested with opencv 3.2
     MRPT_START
 #if MRPT_HAS_OPENCV
-#	if MRPT_OPENCV_VERSION_NUM < 0x300
-    THROW_EXCEPTION("This function requires OpenCV > 3.0.0")
+#	if MRPT_OPENCV_VERSION_NUM < 0x320
+    THROW_EXCEPTION("This function requires OpenCV >= 3.2.0")
 #	else
 
     using namespace cv;

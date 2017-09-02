@@ -78,14 +78,7 @@
 #include <boost/interprocess/sync/scoped_lock.hpp>
 
 /// opencv includes
-#include "opencv2/core.hpp"
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/calib3d/calib3d.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include "opencv2/features2d.hpp"
-#include "opencv2/xfeatures2d.hpp"
-#include <opencv2/line_descriptor.hpp>
-#include <opencv2/plot.hpp>
+#include <mrpt/otherlibs/do_opencv_includes.h>
 
 /// MRPT includes
 #include <mrpt/vision/CFeatureExtraction.h>
@@ -97,12 +90,16 @@
 #include "place_recognition.h"
 
 
-using namespace cv;
 using namespace std;
 using namespace mrpt::vision;
 using namespace mrpt::utils;
 using namespace mrpt::math;
 using namespace mrpt;
+
+#if MRPT_HAS_OPENCV
+using namespace cv;
+#endif
+
 
 class MainWindow : public QMainWindow
 {

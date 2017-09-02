@@ -19,11 +19,17 @@
 #include <mrpt/utils/CMemoryStream.h>
 #include <mrpt/otherlibs/do_opencv_includes.h>
 
+
 #ifdef HAVE_OPENCV_XFEATURES2D
 # include <opencv2/xfeatures2d.hpp>
+using namespace cv::xfeatures2d;
+#endif
+
+#ifdef HAVE_OPENCV_LINE_DESCRIPTOR
 # include <opencv2/line_descriptor.hpp>
 using namespace cv::line_descriptor;
 #endif
+
 
 using namespace mrpt::vision;
 using namespace mrpt::utils;
@@ -36,13 +42,13 @@ void  CFeatureExtraction::extractFeaturesLSD(const mrpt::utils::CImage &inImg, C
                                              unsigned int init_ID, unsigned int nDesiredFeatures,
                                              const TImageROI &ROI) const
 {
-    //function is tested with opencv 3.1
+    //function is tested with opencv 3.2
 
     MRPT_UNUSED_PARAM(ROI);
     MRPT_START
 #if MRPT_HAS_OPENCV
-#	if MRPT_OPENCV_VERSION_NUM < 0x300
-        THROW_EXCEPTION("This function requires OpenCV > 3.0.0")
+#	if MRPT_OPENCV_VERSION_NUM < 0x320
+        THROW_EXCEPTION("This function requires OpenCV > 3.2.0")
 #	else
 
         using namespace cv;
@@ -50,7 +56,7 @@ void  CFeatureExtraction::extractFeaturesLSD(const mrpt::utils::CImage &inImg, C
         vector<KeyPoint> cv_feats; // The opencv keypoint output vector
         vector<KeyLine> cv_line;
 
-#if MRPT_OPENCV_VERSION_NUM >= 0x300
+#if MRPT_OPENCV_VERSION_NUM >= 0x320
 
         // Make sure we operate on a gray-scale version of the image:
         const CImage inImg_gray( inImg, FAST_REF_OR_CONVERT_TO_GRAY );
@@ -178,11 +184,11 @@ void  CFeatureExtraction::internal_computeBLDLineDescriptors(
         const mrpt::utils::CImage &in_img,
         CFeatureList &in_features) const
 {
-    //function is tested with opencv 3.1
+    //function is tested with opencv 3.2
 
 #if MRPT_HAS_OPENCV
-#	if MRPT_OPENCV_VERSION_NUM < 0x300
-    THROW_EXCEPTION("This function requires OpenCV > 3.0.0")
+#	if MRPT_OPENCV_VERSION_NUM < 0x320
+    THROW_EXCEPTION("This function requires OpenCV > 3.2.0")
 #	else
 
     using namespace cv;
@@ -229,7 +235,9 @@ void  CFeatureExtraction::internal_computeBLDLineDescriptors(
 			ft->descriptors.BLD[m] = cv_descs.at<int>(i,m);		// Get the SURF descriptor
 	} // end for
 
-#endif // end of opencv3 version check
+#endif // end of opencv3.2 version check
 
 #endif //MRPT_HAS_OPENCV
 }  // end internal_computeBLDDescriptors
+
+

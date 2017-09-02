@@ -1,11 +1,11 @@
-/* +------------------------------------------------------------------------+
-   |                     Mobile Robot Programming Toolkit (MRPT)            |
-   |                          http://www.mrpt.org/                          |
-   |                                                                        |
-   | Copyright (c) 2005-2017, Individual contributors, see AUTHORS file     |
-   | See: http://www.mrpt.org/Authors - All rights reserved.                |
-   | Released under BSD License. See details in http://www.mrpt.org/License |
-   +------------------------------------------------------------------------+ */
+/* +---------------------------------------------------------------------------+
+   |                     Mobile Robot Programming Toolkit (MRPT)               |
+   |                          http://www.mrpt.org/                             |
+   |                                                                           |
+   | Copyright (c) 2005-2017, Individual contributors, see AUTHORS file        |
+   | See: http://www.mrpt.org/Authors - All rights reserved.                   |
+   | Released under BSD License. See details in http://www.mrpt.org/License    |
+   +---------------------------------------------------------------------------+ */
 
 #ifndef MRPT_DO_OPENCV_INCL_H
 #define MRPT_DO_OPENCV_INCL_H
@@ -36,6 +36,19 @@
 #		include <opencv2/imgproc/imgproc_c.h>
 #		include <opencv2/features2d/features2d.hpp>
 #		include <opencv2/video/tracking.hpp>
+
+/// start added by Raghavender Sahdev
+#		ifdef HAVE_OPENCV_XFEATURES2D
+#		include <opencv2/xfeatures2d.hpp>
+#		endif
+#		ifdef HAVE_OPENCV_LINE_DESCRIPTOR
+#		include <opencv2/line_descriptor.hpp>
+#		endif
+#		ifdef HAVE_OPENCV_PLOT
+#		include <opencv2/plot.hpp>
+#		endif
+/// end added by Raghavender Sahdev
+
 #		if MRPT_OPENCV_VERSION_NUM>=0x300
 #			include <opencv2/video/tracking_c.h>
 #		endif

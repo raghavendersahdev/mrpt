@@ -3,8 +3,7 @@ INCLUDE(../../cmakemodules/AssureCMakeRootFile.cmake)
 project(benchmarkingImageFeatures_GUI)
 
 
-
-if(CMAKE_MRPT_HAS_Qt5 AND CMAKE_MRPT_HAS_OPENCV)
+if(CMAKE_MRPT_HAS_Qt5 AND CMAKE_MRPT_HAS_OPENCV AND "${MRPT_OPENCV_VERSION}" STREQUAL "3.2.0")
 
         set(CPP_FILES src/main.cpp
             src/mainwindow.cpp

@@ -27,7 +27,6 @@
 /// using namespaces
 using namespace mrpt::obs;
 using namespace mrpt::system;
-using namespace cv::line_descriptor;
 using namespace mrpt::vision;
 using namespace mrpt::utils;
 using namespace mrpt::gui;
@@ -35,8 +34,17 @@ using namespace mrpt::math;
 using namespace mrpt;
 using namespace mrpt::poses;
 using namespace std;
+
+#if MRPT_HAS_OPENCV
 using namespace cv;
+#endif
+
+#ifdef HAVE_OPENCV_XFEATURES2D
 using namespace cv::xfeatures2d;
+#endif
+#ifdef HAVE_OPENCV_LINE_DESCRIPTOR
+using namespace cv::line_descriptor;
+#endif
 
 QImage qimage_1[MAX_DESC], qimage_2[MAX_DESC];      //!< qimage1 and qimage2 stores the descriptor visualizations
 QLabel *images1[MAX_DESC], *images2[MAX_DESC];      //!< images1 and images2 store the descriptor image as a qlabel

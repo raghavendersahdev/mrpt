@@ -43,8 +43,8 @@ void  CFeatureExtraction::extractFeaturesAKAZE(
     MRPT_UNUSED_PARAM(ROI);
     MRPT_START
 #if MRPT_HAS_OPENCV
-#	if MRPT_OPENCV_VERSION_NUM < 0x300
-        THROW_EXCEPTION("This function requires OpenCV > 3.0.0")
+#	if MRPT_OPENCV_VERSION_NUM < 0x320
+        THROW_EXCEPTION("This function requires OpenCV >= 3.2.0")
 #	else
 
         using namespace cv;
@@ -53,7 +53,7 @@ void  CFeatureExtraction::extractFeaturesAKAZE(
         const CImage inImg_gray( inImg, FAST_REF_OR_CONVERT_TO_GRAY );
 
 
-#if MRPT_OPENCV_VERSION_NUM >= 0x300
+#if MRPT_OPENCV_VERSION_NUM >= 0x320
 
         const Mat theImg = cvarrToMat( inImg_gray.getAs<IplImage>() );
         Ptr<AKAZE> akaze = AKAZE::create(options.AKAZEOptions.descriptor_type , options.AKAZEOptions.descriptor_size ,
