@@ -21,12 +21,10 @@
 
 
 #ifdef HAVE_OPENCV_XFEATURES2D
-# include <opencv2/xfeatures2d.hpp>
 using namespace cv::xfeatures2d;
 #endif
 
 #ifdef HAVE_OPENCV_LINE_DESCRIPTOR
-# include <opencv2/line_descriptor.hpp>
 using namespace cv::line_descriptor;
 #endif
 

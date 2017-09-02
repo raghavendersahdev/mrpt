@@ -39,13 +39,6 @@ using namespace std;
 using namespace cv;
 #endif
 
-#ifdef HAVE_OPENCV_XFEATURES2D
-using namespace cv::xfeatures2d;
-#endif
-#ifdef HAVE_OPENCV_LINE_DESCRIPTOR
-using namespace cv::line_descriptor;
-#endif
-
 QImage qimage_1[MAX_DESC], qimage_2[MAX_DESC];      //!< qimage1 and qimage2 stores the descriptor visualizations
 QLabel *images1[MAX_DESC], *images2[MAX_DESC];      //!< images1 and images2 store the descriptor image as a qlabel
 QImage qimage_1_plots_distances[MAX_DESC];          //!< stores the distances of the i'th descriptor from other descriptors in image2
