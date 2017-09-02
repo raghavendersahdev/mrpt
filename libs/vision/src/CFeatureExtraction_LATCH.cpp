@@ -27,17 +27,13 @@
 #ifdef HAVE_OPENCV_XFEATURES2D
 # include <opencv2/xfeatures2d.hpp>
 #endif
-#ifdef HAVE_OPENCV_FEATURES2D
-# include <opencv2/line_descriptor.hpp>
-using namespace cv::line_descriptor;
-#endif
-
 
 using namespace mrpt::vision;
 using namespace mrpt::utils;
 using namespace mrpt::math;
 using namespace mrpt;
 using namespace std;
+
 
 /************************************************************************************************
 *						internal_computeLATCHDescriptors
@@ -98,3 +94,5 @@ void  CFeatureExtraction::internal_computeLATCHDescriptors(
 #endif
     MRPT_END
 }  // end internal_computeLatchDescriptors
+
+
